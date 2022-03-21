@@ -24,12 +24,12 @@ public class CarsController {
     @GetMapping("/cars")
     public String showCars(@RequestParam(value = "count", defaultValue = "5") int index, Model model) {
         List<Car> cars = new ArrayList<>();
-        cars.add(new Car("Lada",1998,80000));
-        cars.add(new Car("BMW",2010,1000000));
-        cars.add(new Car("Mazda", 2011,700000));
-        cars.add(new Car("Lexus",2020,10000000));
-        cars.add(new Car("Ford",2007,500000));
-        model.addAttribute("car",carsDAO.show(cars,index));
+        cars.add(new Car("Lada", 1998, 80000));
+        cars.add(new Car("BMW", 2010, 1000000));
+        cars.add(new Car("Mazda", 2011, 700000));
+        cars.add(new Car("Lexus", 2020, 10000000));
+        cars.add(new Car("Ford", 2007, 500000));
+        model.addAttribute("car", carsDAO.show(cars, index));
         return "car";
     }
 
