@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import web.DAO.CarsDAOImpl;
 import web.models.Car;
+import web.service.CarService;
+import web.service.CarServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +17,10 @@ import java.util.List;
 @Controller
 public class CarsController {
 
-    private final CarsDAOImpl carsDAO;
+    private final CarServiceImpl carService;
 
-    public CarsController(CarsDAOImpl carsDAO) {
-        this.carsDAO = carsDAO;
+    public CarsController(CarServiceImpl carService) {
+        this.carService = carService;
     }
 
     @GetMapping("/cars")
@@ -29,7 +31,7 @@ public class CarsController {
         cars.add(new Car("Mazda", 2011, 700000));
         cars.add(new Car("Lexus", 2020, 10000000));
         cars.add(new Car("Ford", 2007, 500000));
-        model.addAttribute("car", carsDAO.show(cars, index));
+        model.addAttribute("car", carService.show(cars, index));
         return "car";
     }
 
